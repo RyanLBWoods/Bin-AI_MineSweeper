@@ -14,19 +14,39 @@ public class Strategy {
         System.out.println(Arrays.toString(choice));
         Node pb = new Node(choice[0], choice[1], NettleSweeper.map[choice[0]][choice[1]]);
 
-        while (Game.probe(pb)) {
-            NettleSweeper.printKB();
-            uncovered = Game.getUncovered();
-            System.out.println(uncovered.size());
-            if (uncovered.size() == 0) {
+        while(true){
+            if(Game.probe(pb)){
                 NettleSweeper.printKB();
-                System.out.println("You WIN!!!");
+                uncovered = Game.getUncovered();
+                System.out.println(uncovered.size());
+                if (uncovered.size() == 0) {
+                    NettleSweeper.printKB();
+                    System.out.println("You WIN!!!");
+                    break;
+                }
+                rd = Game.getRandom(uncovered);
+                choice = uncovered.get(rd);
+                System.out.println(Arrays.toString(choice));
+                pb = new Node(choice[0], choice[1], NettleSweeper.map[choice[0]][choice[1]]);
+            } else {
+                System.out.println("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!!!");
+                System.out.println("YOU LOSE");
+                break;
             }
-            rd = Game.getRandom(uncovered);
-            choice = uncovered.get(rd);
-            System.out.println(Arrays.toString(choice));
-            pb = new Node(choice[0], choice[1], NettleSweeper.map[choice[0]][choice[1]]);
         }
+//        while (Game.probe(pb)) {
+//            NettleSweeper.printKB();
+//            uncovered = Game.getUncovered();
+//            System.out.println(uncovered.size());
+//            if (uncovered.size() == 0) {
+//                NettleSweeper.printKB();
+//                System.out.println("You WIN!!!");
+//            }
+//            rd = Game.getRandom(uncovered);
+//            choice = uncovered.get(rd);
+//            System.out.println(Arrays.toString(choice));
+//            pb = new Node(choice[0], choice[1], NettleSweeper.map[choice[0]][choice[1]]);
+//        }
     }
 
     public static void SPS() {
@@ -75,7 +95,11 @@ public class Strategy {
                             break;
                         } else if ((n.getState() - 48) == mine) {
                             current.setState(current.getX(), current.getY());
-                            Game.probe(current);
+                            if(!Game.probe(current)){
+                                System.out.println("BOOOOOOOOOOOOOOOOOOOOOOM!!!");
+                                System.out.println("YOU LOSE");
+                                System.exit(0);
+                            }
                             NettleSweeper.printKB();
                             break;
                         }

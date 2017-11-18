@@ -59,9 +59,9 @@ public class NettleSweeper {
 //        Strategy.RGS();
         Strategy.SPS();
         
-        System.out.println("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!");
-        System.out.println("You LOSE!!!");
-        System.exit(0);
+//        System.out.println("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!");
+//        System.out.println("You LOSE!!!");
+//        System.exit(0);
     }
 
     

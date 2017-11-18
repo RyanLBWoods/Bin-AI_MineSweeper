@@ -56,7 +56,8 @@ public class NettleSweeper {
         System.out.println("Start " + Arrays.toString(start.getLocation()));
         Game.deduce(start);
         
-        Strategy.RGS();
+//        Strategy.RGS();
+        Strategy.SPS();
         
         System.out.println("BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM!");
         System.out.println("You LOSE!!!");

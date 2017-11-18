@@ -81,4 +81,12 @@ public class Node {
         
         return neighbours;
     }
+    
+    public void mark(){
+        this.state = Configurations.MARK;
+    }
+    
+    public void setState(int x, int y){
+        this.state = NettleSweeper.map[x][y];
+    }
 }

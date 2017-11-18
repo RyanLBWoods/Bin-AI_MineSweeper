@@ -71,28 +71,28 @@ public class Game {
     }
     
     public static void setNeighbours(Node n, int[][] map){
-        if(n.getX() - 1 > 0){
+        if(n.getX() - 1 >= 0){
             n.uNeighbour = new Node(n.getX() - 1, n.getY(), map[n.getX() - 1][n.getY()]);
-            if(n.getY() - 1 > 0){
+            if(n.getY() - 1 >= 0){
                 n.luNeighbour = new Node(n.getX() - 1, n.getY() - 1, map[n.getX() - 1][n.getY() - 1]);
             }
         }
         if(n.getX() + 1 < 5){
             n.dNeighbour = new Node(n.getX() + 1, n.getY(), map[n.getX() + 1][n.getY()]);
-            if(n.getY() - 1 > 0){
+            if(n.getY() - 1 >= 0){
                 n.ldNeighbour = new Node(n.getX() + 1, n.getY() - 1, map[n.getX() + 1][n.getY() - 1]);
             }
         }
         if(n.getY() + 1 < 5){
             n.rNeighbour = new Node(n.getX(), n.getY() + 1, map[n.getX()][n.getY() + 1]);
-            if(n.getX() - 1 > 0){
+            if(n.getX() - 1 >= 0){
                 n.ruNeighbour = new Node(n.getX() - 1, n.getY() + 1, map[n.getX() - 1][n.getY() + 1]);
             }
             if(n.getX() + 1 < 5){
                 n.rdNeighbour = new Node(n.getX() + 1, n.getY() + 1, map[n.getX() + 1][n.getY() + 1]);
             }
         }
-        if(n.getY() - 1 > 0){
+        if(n.getY() - 1 >= 0){
             n.lNeighbour = new Node(n.getX(), n.getY() - 1, map[n.getX()][n.getY() - 1]);
         }
     }
@@ -149,28 +149,28 @@ public class Game {
 
     public static void setKBNeighbours(Node n, char[][] map) {
         // TODO Auto-generated method stub
-        if(n.getX() - 1 > 0){
+        if(n.getX() - 1 >= 0){
             n.uNeighbour = new Node(n.getX() - 1, n.getY(), map[n.getX() - 1][n.getY()]);
-            if(n.getY() - 1 > 0){
+            if(n.getY() - 1 >= 0){
                 n.luNeighbour = new Node(n.getX() - 1, n.getY() - 1, map[n.getX() - 1][n.getY() - 1]);
             }
         }
         if(n.getX() + 1 < 5){
             n.dNeighbour = new Node(n.getX() + 1, n.getY(), map[n.getX() + 1][n.getY()]);
-            if(n.getY() - 1 > 0){
+            if(n.getY() - 1 >= 0){
                 n.ldNeighbour = new Node(n.getX() + 1, n.getY() - 1, map[n.getX() + 1][n.getY() - 1]);
             }
         }
         if(n.getY() + 1 < 5){
             n.rNeighbour = new Node(n.getX(), n.getY() + 1, map[n.getX()][n.getY() + 1]);
-            if(n.getX() - 1 > 0){
+            if(n.getX() - 1 >= 0){
                 n.ruNeighbour = new Node(n.getX() - 1, n.getY() + 1, map[n.getX() - 1][n.getY() + 1]);
             }
             if(n.getX() + 1 < 5){
                 n.rdNeighbour = new Node(n.getX() + 1, n.getY() + 1, map[n.getX() + 1][n.getY() + 1]);
             }
         }
-        if(n.getY() - 1 > 0){
+        if(n.getY() - 1 >= 0){
             n.lNeighbour = new Node(n.getX(), n.getY() - 1, map[n.getX()][n.getY() - 1]);
         }
     }

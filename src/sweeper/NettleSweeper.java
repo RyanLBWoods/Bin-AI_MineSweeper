@@ -2,8 +2,10 @@ package sweeper;
 
 import java.util.Arrays;
 import java.util.Scanner;
+
 /**
  * Main class represents the game agent.
+ * 
  * @author bl41
  *
  */
@@ -36,14 +38,16 @@ public class NettleSweeper {
      * Method to show the current status of knowledge base.
      */
     public static void printKB() {
-        for(char[] row: knowledgemap){
+        for (char[] row : knowledgemap) {
             System.out.println(Arrays.toString(row));
         }
     }
 
     /**
      * Main method of the project.
-     * @param args Arguments
+     * 
+     * @param args
+     *            Arguments
      */
     public static void main(String[] args) {
         // TODO Auto-generated method stub
@@ -78,13 +82,13 @@ public class NettleSweeper {
             break;
         }
 
-        //Deduce the reachable zero cell
+        // Deduce the reachable zero cell
         Node start = new Node(0, 0, map[0][0]);
         System.out.println("Start " + Arrays.toString(start.getLocation()));
         Game.deduce(start);
 
-        //Explore the map
-        while(nettlenum != 0){
+        // Explore the map
+        while (nettlenum != 0) {
             if (!Strategy.SPS()) {
                 Strategy.RGS();
             }
@@ -95,6 +99,7 @@ public class NettleSweeper {
 
     /**
      * Method to select level.
+     * 
      * @return Return level number
      */
     public static int selectLevel() {
@@ -109,6 +114,7 @@ public class NettleSweeper {
 
     /**
      * Method to select map.
+     * 
      * @return Return map number
      */
     public static int selectMap() {

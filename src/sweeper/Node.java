@@ -8,8 +8,8 @@ public class Node {
     private int y;
     private int state;
     
-    private ArrayList<Node> uncovered;
-    private int marked;
+//    private ArrayList<Node> uncovered;
+//    private int marked;
     
     Node luNeighbour;
     Node uNeighbour;

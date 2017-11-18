@@ -1,7 +1,6 @@
 package sweeper;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Game {
     
@@ -77,18 +76,18 @@ public class Game {
                 n.luNeighbour = new Node(n.getX() - 1, n.getY() - 1, map[n.getX() - 1][n.getY() - 1]);
             }
         }
-        if(n.getX() + 1 < 5){
+        if(n.getX() + 1 < NettleSweeper.mapSize){
             n.dNeighbour = new Node(n.getX() + 1, n.getY(), map[n.getX() + 1][n.getY()]);
             if(n.getY() - 1 >= 0){
                 n.ldNeighbour = new Node(n.getX() + 1, n.getY() - 1, map[n.getX() + 1][n.getY() - 1]);
             }
         }
-        if(n.getY() + 1 < 5){
+        if(n.getY() + 1 < NettleSweeper.mapSize){
             n.rNeighbour = new Node(n.getX(), n.getY() + 1, map[n.getX()][n.getY() + 1]);
             if(n.getX() - 1 >= 0){
                 n.ruNeighbour = new Node(n.getX() - 1, n.getY() + 1, map[n.getX() - 1][n.getY() + 1]);
             }
-            if(n.getX() + 1 < 5){
+            if(n.getX() + 1 < NettleSweeper.mapSize){
                 n.rdNeighbour = new Node(n.getX() + 1, n.getY() + 1, map[n.getX() + 1][n.getY() + 1]);
             }
         }
@@ -108,15 +107,15 @@ public class Game {
                     cell.lNeighbour = new Node(i, j - 1, map[i][j - 1]);
                     cell.uNeighbour = new Node(i - 1, j, map[i - 1][j]);
                 }
-                if(i + 1 < 5 && j + 1 < 5){
+                if(i + 1 < NettleSweeper.mapSize && j + 1 < NettleSweeper.mapSize){
                     cell.rdNeighbour = new Node(i + 1, j + 1, map[i + 1][j + 1]);
                     cell.rNeighbour = new Node(i, j + 1, map[i][j + 1]);
                     cell.dNeighbour = new Node(i + 1, j, map[i + 1][j]);
                 }
-                if(i - 1 > 0 && j + 1 < 5){
+                if(i - 1 > 0 && j + 1 < NettleSweeper.mapSize){
                     cell.ruNeighbour = new Node(i - 1, j + 1, map[i - 1][j + 1]);
                 }
-                if(i + 1 < 5 && j - 1 > 0){
+                if(i + 1 < NettleSweeper.mapSize && j - 1 > 0){
                     cell.ldNeighbour = new Node(i + 1, j - 1, map[i + 1][j - 1]);
                 }
                 cells.add(cell);
@@ -127,25 +126,25 @@ public class Game {
         return cells;
     }
     
-    public static ArrayList<int[]> getNettlePosition(){
-        ArrayList<int[]> nettles = new ArrayList<>();
-        int a = 0;
-        int[][] map = EasyMap.getMap(1);
-        int[][] searchMap = new int[5][5];
-        
-        for(int i = 0; i < map.length; i++){
-            for(int j = 0; j < map[i].length; j++){
-                if(map[i][j] == -1){
-                    int[] nettle_position = {i, j};
-                    nettles.add(nettle_position);
-                    System.out.println(Arrays.toString(nettles.get(a)));
-                    a++;
-                }
-            }
-        }
-        
-        return nettles;
-    }
+//    public static ArrayList<int[]> getNettlePosition(){
+//        ArrayList<int[]> nettles = new ArrayList<>();
+//        int a = 0;
+//        int[][] map = EasyMap.getMap(1);
+//        int[][] searchMap = new int[NettleSweeper.mapSize][NettleSweeper.mapSize];
+//        
+//        for(int i = 0; i < map.length; i++){
+//            for(int j = 0; j < map[i].length; j++){
+//                if(map[i][j] == -1){
+//                    int[] nettle_position = {i, j};
+//                    nettles.add(nettle_position);
+//                    System.out.println(Arrays.toString(nettles.get(a)));
+//                    a++;
+//                }
+//            }
+//        }
+//        
+//        return nettles;
+//    }
 
     public static void setKBNeighbours(Node n, char[][] map) {
         // TODO Auto-generated method stub
@@ -155,18 +154,18 @@ public class Game {
                 n.luNeighbour = new Node(n.getX() - 1, n.getY() - 1, map[n.getX() - 1][n.getY() - 1]);
             }
         }
-        if(n.getX() + 1 < 5){
+        if(n.getX() + 1 < NettleSweeper.mapSize){
             n.dNeighbour = new Node(n.getX() + 1, n.getY(), map[n.getX() + 1][n.getY()]);
             if(n.getY() - 1 >= 0){
                 n.ldNeighbour = new Node(n.getX() + 1, n.getY() - 1, map[n.getX() + 1][n.getY() - 1]);
             }
         }
-        if(n.getY() + 1 < 5){
+        if(n.getY() + 1 < NettleSweeper.mapSize){
             n.rNeighbour = new Node(n.getX(), n.getY() + 1, map[n.getX()][n.getY() + 1]);
             if(n.getX() - 1 >= 0){
                 n.ruNeighbour = new Node(n.getX() - 1, n.getY() + 1, map[n.getX() - 1][n.getY() + 1]);
             }
-            if(n.getX() + 1 < 5){
+            if(n.getX() + 1 < NettleSweeper.mapSize){
                 n.rdNeighbour = new Node(n.getX() + 1, n.getY() + 1, map[n.getX() + 1][n.getY() + 1]);
             }
         }

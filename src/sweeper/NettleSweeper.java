@@ -1,5 +1,6 @@
 package sweeper;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -87,14 +88,30 @@ public class NettleSweeper {
         System.out.println("Start " + Arrays.toString(start.getLocation()));
         Game.deduce(start);
 
+        
         // Explore the map
-        while (nettlenum != 0) {
+        while (nettlenum > 0) {
             if (!Strategy.SPS()) {
                 Strategy.RGS();
+                
             }
         }
         // If all nettles have been found, tell user game win
         System.out.println("You Win!!!");
+        // Check if all cells that does not have nettle have been probed
+        ArrayList<int[]> after = Game.getUncovered();
+        if(after.size() != 0){
+            for(int a = 0; a < map.length; a++){
+                for(int b = 0; b < map[a].length; b++){
+                    if(map[a][b] == -1){
+                        knowledgemap[a][b] = Configurations.MARK;
+                    } else {
+                        knowledgemap[a][b] = (char) (map[a][b] + 48);
+                    }
+                }
+            }
+            printKB();
+        }
     }
 
     /**
@@ -109,6 +126,10 @@ public class NettleSweeper {
         System.out.println("2. Medium: 9 * 9 with 10 nettles");
         System.out.println("3. Hard: 10 * 10 with 20 nettles");
         lvl = sc.nextInt();
+        while(lvl > 3 || lvl < 1){
+            System.out.println("Invalid Selection, please try again");
+            lvl = sc.nextInt();
+        }
         return lvl;
     }
 
@@ -121,6 +142,10 @@ public class NettleSweeper {
         int num = 0;
         System.out.println("Please Select Map Number (1 ~ 5)");
         num = sc.nextInt();
+        while(num > 5 || num < 1){
+            System.out.println("Invalid Selection, please try again");
+            num = sc.nextInt();
+        }
         return num;
     }
 
